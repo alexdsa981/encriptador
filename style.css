@@ -1,3 +1,69 @@
-body{
+body {
     background-color: #F3F5FC;
+    width: 100%;
+    text-align: center;
 }
+
+header {
+    width: 100%;
+    text-align: left;
+}
+
+header .logo {
+    margin: 10px 0 10px 20px;
+}
+
+main {
+    width: 100%;
+}
+
+.left-side {
+    width: 65%;
+    display: inline-block;
+}
+
+.left-side .texto-input {
+    width: 577px;
+    height: 48px;
+    border-radius: 10px;
+}
+
+.right-side {
+    width: 30%;
+    display: inline-block;
+}
+
+.right-side .contenedor {
+    height: 844px;
+    width: 400px;
+
+    display: flex;
+    /**/
+    align-items: center;
+
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+
+    border-style: none;
+    border-color: blue;
+    border-radius: 32px;
+    border-width: 2px;
+
+}
+
+.right-side .contenedor .contenido {
+    width: 100%;
+}
+
+.muñeco {
+    width: 300px;
+}
+
+.texto-activo {
+    display: none;
+}
+
+.aviso-input-vacio {
+    margin-top: 5px;
+}
+
+footer {}
