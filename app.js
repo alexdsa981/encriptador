@@ -1,64 +1,69 @@
+let textoInactivo = document.getElementById('texto-inactivo');
+let textoActivo = document.getElementById('texto-activo');
+let textoSalida = document.getElementById('texto-output');
 
 function obtenerTextoEntrada() {
     let textoEntrada = document.getElementById('texto-input').value;
-    let arrayTexto = [];
-    for (let index = 0; index < textoEntrada.length; index++) {
-        arrayTexto.push(textoEntrada[index]);
-        console.log(textoEntrada[index] + " " + index);
-    }
-    return arrayTexto;
+    // Eliminar acentos y caracteres especiales
+    textoEntrada = textoEntrada.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    textoEntrada = textoEntrada.toLowerCase();
+
+    return textoEntrada;
 }
 
-function Encriptarletra(letra) {
-    switch (letra) {
-        case 'a':
-            letra = 'ai';
-            break;
-        case 'e':
-            letra = 'enter';
-            break;
-        case 'i':
-            letra = 'imes';
-            break;
-        case 'o':
-            letra = 'ober';
-            break;
-        case 'u':
-            letra = 'ufat';
-            break;
-        default:
-            break;
-    }
-    return letra;
-}
-function EncriptarTexto() {
-    let arrayEntrada = obtenerTextoEntrada();
-    let arraySalida = [];
-    let letra;
-    for (let index = 0; index < arrayEntrada.length; index++) {
-        letra = arrayEntrada[index];
-        arraySalida.push(Encriptarletra(letra));
-    }
-    console.log(arraySalida);
-    return arraySalida;
-}
-function mostrarTextoSalida() {
-    let textoSalida = document.getElementById('texto-output');
-    let textoEncriptado = "";
-    let arrayTextoEncriptado = EncriptarTexto();
-    for (let index = 0; index < arrayTextoEncriptado.length; index++) {
-        letra = arrayTextoEncriptado[index];
-        textoEncriptado = textoEncriptado + letra;
-    }
-    textoSalida.value = textoEncriptado;
+function encriptarTexto() {
+    textoEntrada = obtenerTextoEntrada();
+    let textoEncriptado = textoEntrada
+        .replace(/e/g, "enter")
+        .replace(/i/g, "imes")
+        .replace(/a/g, "ai")
+        .replace(/o/g, "ober")
+        .replace(/u/g, "ufat");
     console.log(textoEncriptado);
+    return textoEncriptado;
+}
+
+function desencriptarTexto() {
+    textoEntrada = obtenerTextoEntrada();
+    let textoDesencriptado = textoEntrada
+        .replace(/enter/g, "e")
+        .replace(/imes/g, "i")
+        .replace(/ai/g, "a")
+        .replace(/ober/g, "o")
+        .replace(/ufat/g, "u");
+    console.log(textoDesencriptado);
+    return textoDesencriptado;
 }
 function btnEncriptar() {
-    mostrarTextoSalida();
-    let textoInactivo = document.getElementById('texto-inactivo');
-    textoInactivo.style.display = "none";
-
-    let textoActivo = document.getElementById('texto-activo');
-    textoActivo.style.display = "block";
-
+    let textoEntrada = document.getElementById('texto-input').value;
+    if (!textoEntrada == "") {
+        textoInactivo.style.display = "none";
+        textoActivo.style.display = "block";
+        textoSalida.value = encriptarTexto();
+    }
 }
+function btnDesencriptar() {
+    let textoEncriptado = document.getElementById('texto-input').value;
+    if (!textoEncriptado == "") {
+        textoInactivo.style.display = "none";
+        textoActivo.style.display = "block";
+        textoSalida.value = desencriptarTexto();
+    }
+}
+
+function btnCopiar() {
+
+    var textoOutput = document.getElementById('texto-output');
+
+    textoOutput.select();
+    textoOutput.setSelectionRange(0, 99999);
+
+    try {
+        document.execCommand('copy');
+        alert('Texto copiado al portapapeles con éxito');
+    } catch (err) {
+        console.error('No se pudo copiar el texto: ', err);
+        alert('Error al copiar el texto al portapapeles');
+    }
+}
+
