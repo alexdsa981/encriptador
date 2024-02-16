@@ -21,7 +21,7 @@
             <div class="contenedor">
                 <div class="contenido">
                     <div>
-                        <textarea class="textarea-input" name="" id="" cols="30" rows="10"
+                        <textarea class="textarea-input" name="" id="texto-input" cols="30" rows="10"
                             placeholder="Ingrese el texto aquí"></textarea>
                     </div>
 
@@ -31,8 +31,8 @@
                     </div>
 
                     <div class="botones-encriptacion">
-                        <input type="button" value="Encriptar" class="boton encriptar">
-                        <input type="button" value="Desencriptar" class="boton desencriptar">
+                        <input type="button" onclick="btnEncriptar()" value="Encriptar" class="boton encriptar">
+                        <input type="button" onclick="" value="Desencriptar" class="boton desencriptar">
                     </div>
                 </div>
             </div>
@@ -41,16 +41,16 @@
         <div class="right-side">
             <div class="contenedor">
                 <div class="contenido">
-                    <div class="texto-inactivo">
+                    <div class="texto-inactivo" id="texto-inactivo">
                         <img src="img/Muñeco.png" alt="muñeco" class="muñeco">
                         <div class="aviso-input-vacio">
                             <b>Ningún mensaje fue encontrado</b>
                             <p>Ingresa el texto aqui que deseas encriptar o desencriptar</p>
                         </div>
                     </div>
-                    <div class="texto-activo">
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                        <input type="button" name="" id="" value="Copiar" class="boton copiar">
+                    <div class="texto-activo" id="texto-activo">
+                        <textarea name="" id="texto-output" cols="30" rows="10"></textarea>
+                        <input type="button" name="" id="" onclick="" value="Copiar" class="boton copiar">
                     </div>
                 </div>
             </div>
@@ -64,5 +64,5 @@
         <p>Alura G6</p>
     </div>
 </footer>
-
+<script src="app.js"></script>
 </html>
