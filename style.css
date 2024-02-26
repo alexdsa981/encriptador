@@ -181,3 +181,57 @@ footer {
     margin-top: 30px;
     margin-bottom: 20px;
 }
+
+/*RESPONSIVE*/
+/*tablet*/
+@media screen and (min-width:768px) and (max-width: 1180px) {
+    .muñeco {
+        display: none;
+    }
+
+    .right-side .aviso-input-vacio {
+        width: 100%;
+    }
+
+    .right-side .contenedor {
+        height: fit-content;
+        width: 668px;
+        padding: 10px 0 10px 0;
+    }
+
+    .texto-activo textarea {
+        height: auto;
+    }
+}
+
+@media (max-width: 1030px) {
+    .botones-encriptacion {
+        width: 100%;
+        text-align: center;
+    }
+
+    .right-side .contenedor {
+        margin-top: 30px;
+    }
+    .right-side .aviso-input-vacio {
+        width: 100%;
+    }
+
+    .right-side .contenedor {
+        height: fit-content;
+        width: 668px;
+        padding: 10px 0 10px 0;
+    }
+
+    .texto-activo textarea {
+        height: auto;
+    }
+}
+
+/*celular*/
+@media screen and (max-width: 767px) {
+    .muñeco {
+        display: none;
+    }
+
+}
